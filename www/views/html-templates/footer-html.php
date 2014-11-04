@@ -11,6 +11,8 @@ class FooterHtml {
         $dateStr = sprintf("%s den %d %s år %d. Klockan är [%s:%s:%s].", ucFirst(strftime("%A")) , date("j"), lcFirst(strftime("%B")), date("Y"), date("H"), date("i"), date("s"));
         return '<footer>
             ' . $dateStr . '
-        </footer>';
+        </footer>
+    </body>
+</html>';
     }
 }

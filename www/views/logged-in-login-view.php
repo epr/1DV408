@@ -20,17 +20,14 @@ class LoggedInLoginView extends LoginView {
     }
 
     public function renderPage() {
-        echo '<html>'
-        . $this->headHtml->getHtml() .
+        echo $this->headHtml->getHtml() .
         '<body>
             <h1>Laborationskod hl222ih</h1>
             <h2>' . $this->model->getUsername() . ' är inloggad' . '</h2>
             ' . ($this->model->getNotification() ? '<p>' . $this->model->getNotification() . '</p>' : '') . '
             <p><a href="?logout" onclick="">Logga ut</a></p>
             <p></p>' .
-            $this->footerHtml->getHtml() .
-        '</body>
-        </html>';
+            $this->footerHtml->getHtml();
     }
 
 }

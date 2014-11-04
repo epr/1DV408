@@ -11,7 +11,8 @@ class HeadHtml {
 
     public function getHtml() {
 
-        return '
+        return '<!doctype html>
+    <html>
         <head>
             <meta charset="utf-8" />
             <title>' . $this->title . '</title>

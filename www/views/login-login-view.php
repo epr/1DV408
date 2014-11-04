@@ -47,8 +47,7 @@ class LoginLoginView extends LoginView {
         if (isset($_COOKIE[$this->cookieEncryptedPasswordKey])) {
             // TODO: something
         }
-        echo '<html>'
-        . $this->headHtml->getHtml() .
+        echo $this->headHtml->getHtml() .
         '<body>
             <h1>Laborationskod hl222ih</h1>
             <p><a href="" onclick="alert(\'Saknar funktionalitet.\n\nFinns bara med för att det fanns med\n\npå bilderna i krav och testfall.\')">Registrera ny användare</a></p>
@@ -69,10 +68,7 @@ class LoginLoginView extends LoginView {
                 </fieldset>
             </form>
             <p></p>' .
-            $this->footerHtml->getHtml() .
-        '</body>
-        </html>
-        ';
+            $this->footerHtml->getHtml();
     }
     public function setCookiesIfAutoLogin() {
         if ($this->autoLogin) {

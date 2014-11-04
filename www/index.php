@@ -1,13 +1,8 @@
 <?php
 namespace LoginApp;
-?>
-
-<!DOCTYPE html>
-
-<?php
 use LoginApp\Controller as Ctrl;
 ini_set("session.cookie_httponly", true); //prevent javascript to access session cookie
-ini_set('error_reporting', 0); //prevent error reporting on server code
+#ini_set('error_reporting', 0); //prevent error reporting on server code
 
 session_start();
 
