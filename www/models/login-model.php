@@ -190,4 +190,22 @@ class LoginModel {
         $sessionUserAgent = isset($_SESSION[$this->sessionUserAgentKey]) ? $_SESSION[$this->sessionUserAgentKey] : "" ;
         return ($currentUserAgent == $sessionUserAgent);
     }
+    public function tryRegister($newname, $newpass, $passagain) {
+        $isSuccess = true;
+        $nameTooShort = false;
+        if (strlen($newname) < 3) {
+            $_SESSION[$this->sessionNotificationKey] = "Användarnamnet har för få tecken. Minst 3 tecken";
+            $isSuccess = false;
+            $nameTooShort = true;
+        }
+        if (strlen($newpass) < 6) {
+            $_SESSION[$this->sessionNotificationKey] = ($nameTooShort ? "Användarnamnet har för få tecken. Minst 3 tecken. Lösenorden har för få tecken. Minst 6 tecken" : "Lösenorden har för få tecken. Minst 6 tecken");
+            $isSuccess = false;
+        }
+        if ($newpass != $passagain) {
+            $_SESSION[$this->sessionNotificationKey] = "Lösenorden matchar inte.";
+            $isSuccess = false;
+        }
+        return $isSuccess;
+    }
 }

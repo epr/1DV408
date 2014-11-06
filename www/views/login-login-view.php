@@ -50,7 +50,9 @@ class LoginLoginView extends LoginView {
         echo $this->headHtml->getHtml() .
         '<body>
             <h1>Laborationskod hl222ih</h1>
-            <p><a href="" onclick="alert(\'Saknar funktionalitet.\n\nFinns bara med för att det fanns med\n\npå bilderna i krav och testfall.\')">Registrera ny användare</a></p>
+            <form action="' . $_SERVER['PHP_SELF'] . '" method="post">
+                <input type="submit" value="Registrera ny användare" name="register">
+            </form>
             <h2>Ej Inloggad</h2>
 
             <form action="' . $_SERVER['PHP_SELF'] . '" method="post">

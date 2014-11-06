@@ -7,6 +7,7 @@ require_once("models/login-model.php");
 require_once("views/login-view.php");
 require_once("views/login-login-view.php");
 require_once("views/logged-in-login-view.php");
+require_once("views/RegisterView.php");
 
 class LoginController {
     private $view;
@@ -47,6 +48,11 @@ class LoginController {
                 } else {
                     $this->view->clearCookies();
                 }
+            } elseif ($this->view->wasRegisterButtonClicked()) {
+                $this->view = new View\RegisterView($this->model);
+            } elseif ($this->view->wasRegisterSendButtonClicked()) {
+                $this->view = new View\RegisterView($this->model);
+                $this->model->tryRegister($this->view->getNewName(), $this->view->getNewPass(), $this->view->getPassAgain());
             }
             if ($willRedirect) {
                 $this->view->redirectPage();

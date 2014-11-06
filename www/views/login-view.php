@@ -48,5 +48,11 @@ abstract class LoginView {
         setcookie($this->cookieUsernameKey, null, -1, '/');
     }
 
+    public function wasRegisterButtonClicked() {
+        return isset($_POST["register"]);
+    }
+    public function wasRegisterSendButtonClicked() {
+        return isset($_POST["registersend"]);
+    }
 
 }
